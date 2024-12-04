@@ -138,7 +138,7 @@ Copy-paste this into your `README.md`. Let me know if there's anything else you'
 
 ## 📹 Screen Recording
 
-[Click here](link-to-recording) to watch the app demo.
+[Click here]() to watch the app demo.
 
 ---
 
