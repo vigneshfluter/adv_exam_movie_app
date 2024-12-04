@@ -128,7 +128,9 @@ lib/
 
 | **Splash Screen**         | **Home Page**        | **Detail Page**          | **Liked Movies Page**        |
 |----------------------------|----------------------|--------------------------|------------------------------|
-| ![Splash Screen](link1)   | ![Home Page](link2)  | ![Detail Page](link3)    | ![Liked Movies Page](link4) |
+| ![Splash Screen](![Screenshot_20241204_153138](https://github.com/user-attachments/assets/e011bbf6-0668-4f9d-b812-0ae62e59b5a3)
+)   | ![Home Page](![Screenshot_20241204_153215](https://github.com/user-attachments/assets/05556fe8-776d-442a-ae94-f34fd8b17ac0)
+)  | ![Detail Page]([link3](https://github.com/vigneshfluter/adv_exam_movie_app))    | ![Liked Movies Page]([link4](https://github.com/vigneshfluter/adv_exam_movie_app)) |
 
 ---
 
