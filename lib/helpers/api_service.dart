@@ -3,35 +3,20 @@ import 'package:http/http.dart' as http;
 import '../models/movie.dart';
 
 class ApiService {
-  final String apiKey = '12f651aa'; // Your OMDb API key
-
   Future<List<Movie>> searchMovies(String query) async {
-    final url = 'https://www.omdbapi.com/?s=$query&apikey=$apiKey';
-    final response = await http.get(Uri.parse(url));
+    final url = Uri.parse('https://www.omdbapi.com/?s=$query&apikey=12f651aa');
+    final response = await http.get(url);
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      List<Movie> movies = [];
-      if (data['Search'] != null) {
-        for (var movie in data['Search']) {
-          movies.add(Movie.fromJson(movie));
-        }
+      if (data['Response'] == 'True') {
+        final List movies = data['Search'];
+        return movies.map((movie) => Movie.fromJson(movie)).toList();
+      } else {
+        throw Exception(data['Error'] ?? 'Unknown error occurred');
       }
-      return movies;
     } else {
-      throw Exception('Failed to load movies');
-    }
-  }
-
-  Future<Movie> getMovieDetail(String imdbID) async {
-    final url = 'https://www.omdbapi.com/?i=$imdbID&apikey=$apiKey';
-    final response = await http.get(Uri.parse(url));
-
-    if (response.statusCode == 200) {
-      final data = json.decode(response.body);
-      return Movie.fromJson(data);
-    } else {
-      throw Exception('Failed to load movie details');
+      throw Exception('Failed to fetch movies');
     }
   }
 }

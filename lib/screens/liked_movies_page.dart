@@ -1,43 +1,59 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../models/movie.dart';
+import 'detail_page.dart';
 
-class LikedMoviesPage extends StatelessWidget {
+class LikedPage extends StatelessWidget {
+  final List<Movie> likedMovies;
+
+  const LikedPage({Key? key, required this.likedMovies}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Liked Movies')),
-      body: FutureBuilder<List<Map<String, dynamic>>>(
-        future: SharedPreferencesHelper.getLikedMovies(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          }
-
-          if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          }
-
-          final likedMovies = snapshot.data ?? [];
-          return ListView.builder(
-            itemCount: likedMovies.length,
-            itemBuilder: (context, index) {
-              final movie = likedMovies[index];
-              return ListTile(
-                title: Text(movie['title']),
-                subtitle: Text(movie['year']),
-                leading: Image.network(movie['poster']),
-                trailing: IconButton(
-                  icon: Icon(Icons.delete),
-                  onPressed: () async {
-                    await SharedPreferencesHelper.removeLikedMovie(json.encode(movie));
-                    // Rebuild the list
-                    (context as Element).markNeedsBuild();
-                  },
-                ),
-              );
-            },
+      appBar: AppBar(
+        title: Text('Liked Movies'),
+      ),
+      body: likedMovies.isEmpty
+          ? Center(child: Text('No liked movies yet!'))
+          : GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 0.7,
+        ),
+        itemCount: likedMovies.length,
+        itemBuilder: (context, index) {
+          final movie = likedMovies[index];
+          return GestureDetector(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailPage(movie: movie),
+              ),
+            ),
+            child: Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(
+                    child: Image.network(
+                      movie.poster,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Center(child: Icon(Icons.error));
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      movie.title,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           );
         },
       ),

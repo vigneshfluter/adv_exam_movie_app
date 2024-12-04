@@ -1,19 +1,19 @@
 class Movie {
-  final String title;
-  final String year;
   final String imdbID;
+  final String title;
   final String poster;
-  final String plot;
 
-  Movie({required this.title, required this.year, required this.imdbID, required this.poster, required this.plot});
+  Movie({
+    required this.imdbID,
+    required this.title,
+    required this.poster,
+  });
 
   factory Movie.fromJson(Map<String, dynamic> json) {
     return Movie(
-      title: json['Title'],
-      year: json['Year'],
-      imdbID: json['imdbID'],
-      poster: json['Poster'],
-      plot: json['Plot'],
+      imdbID: json['imdbID'] ?? '', // Provide a default empty string if null
+      title: json['Title'] ?? 'No Title', // Handle missing or null values
+      poster: json['Poster'] ?? 'https://via.placeholder.com/150', // Default image if null
     );
   }
 }
