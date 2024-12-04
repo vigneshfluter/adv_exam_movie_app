@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'pages/home_page.dart';
-import 'pages/liked_movies_page.dart';
-import 'pages/splash_screen.dart';
+import 'package:movies_app/screens/home_page.dart';
+import 'package:movies_app/screens/liked_movies_page.dart';
+import 'package:movies_app/screens/splash_screen.dart';
+
 
 void main() {
   runApp(MovieBrowserApp());

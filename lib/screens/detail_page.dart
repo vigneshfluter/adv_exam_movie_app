@@ -1,14 +1,15 @@
-import 'package:flutter/material.dart';
-import '../models/movie.dart';
-import '../utils/shared_preferences_helper.dart';
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import '../helpers/helper.dart';
+import '../models/movie.dart';
 class DetailPage extends StatelessWidget {
   final Movie movie;
 
   DetailPage({required this.movie});
 
   void _likeMovie(BuildContext context) async {
-    await SharedPreferencesHelper.saveLikedMovie(json.encode(movie.toJson()));
+    await SharedPreferencesHelper.saveLikedMovie(json.encode(movie.toString()));
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Movie liked!')));
   }
 
