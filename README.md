@@ -124,18 +124,16 @@ lib/
 
 ---
 
+
 ## 📸 Screenshots
 
-| **Splash Screen**         | **Home Page**        | **Detail Page**          | **Liked Movies Page**        |
-|----------------------------|----------------------|--------------------------|------------------------------|
-| ![Splash Screen]![Screenshot_20241204_153138](https://github.com/user-attachments/assets/e011bbf6-0668-4f9d-b812-0ae62e59b5a3)
-| ![Home Page]![Screenshot_20241204_153215](https://github.com/user-attachments/assets/15563fda-92d1-4534-90b9-584b7d983116)
-| ![Detail Page]![Screenshot_20241204_153248](https://github.com/user-attachments/assets/a0a1a212-4e8d-4a85-9728-5792bea2ce29)
-| ![Liked Movies Page]![Screenshot_20241204_153309](https://github.com/user-attachments/assets/140999ee-2a04-4da2-babc-398a87347ad0)
+| **Splash Screen**                          | **Home Page**                          | **Detail Page**                          | **Liked Movies Page**                          |
+|--------------------------------------------|----------------------------------------|------------------------------------------|------------------------------------------------|
+| ![Splash Screen](https://github.com/user-attachments/assets/e011bbf6-0668-4f9d-b812-0ae62e59b5a3) | ![Home Page](https://github.com/user-attachments/assets/15563fda-92d1-4534-90b9-584b7d983116) | ![Detail Page](https://github.com/user-attachments/assets/a0a1a212-4e8d-4a85-9728-5792bea2ce29) | ![Liked Movies Page](https://github.com/user-attachments/assets/140999ee-2a04-4da2-babc-398a87347ad0) |
 
+---
 
-
-
+Copy-paste this into your `README.md`. Let me know if there's anything else you'd like to refine!
 ---
 
 ## 📹 Screen Recording
